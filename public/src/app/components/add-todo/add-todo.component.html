@@ -1,0 +1,5 @@
+<form class="form" (ngSubmit)= "onSubmit()">
+  <input type="text" name="title" [(ngModel)]="title" placeholder="Add Todo..."> <!-- binding title input to title property with ngModel. Name needs to be the same-->
+  <!-- {{ title }} because this is two way data binding, {{ title }} will output whatever is in the input box above!-->
+  <input type="submit" value="submit" class="btn">
+</form>

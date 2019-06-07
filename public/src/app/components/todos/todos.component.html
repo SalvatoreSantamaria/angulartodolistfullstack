@@ -1,0 +1,11 @@
+<!-- <app-todo-item *ngFor = "let t of todos" [todo]="t">
+
+</app-todo-item> -->
+
+<app-add-todo (addTodo)="addTodo($event)"></app-add-todo> <!--// setting this to run a method in todos component called "addTodo"-->
+<app-todo-item
+  *ngFor="let t of todos"
+  [todo]="t"
+  (deleteTodo)="deleteTodo($event)"
+>
+</app-todo-item>
