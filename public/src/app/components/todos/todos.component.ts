@@ -16,6 +16,11 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
    // this.todos = this.todoService.getTodos(); was for placeholder, but can do this anymore because it is asynchronus
+    this.dataUpdate();
+  }
+
+
+  dataUpdate() {
     this.todoService.getTodos().subscribe(data => {// think of .subscribe as .then
       console.log(data, 'from todos.component.ts');
       this.todos = data;
@@ -35,6 +40,7 @@ export class TodosComponent implements OnInit {
     // console.log('this is the deleteTodo(todo) route, id is', id);
     // this.router.navigate(['/pets']);
     });
+    this.dataUpdate();
   }
 
   // adding this, is this correct?
@@ -43,6 +49,7 @@ export class TodosComponent implements OnInit {
     this.todoService.toggleCompleted(data._id).subscribe(result => {
 
     });
+    this.dataUpdate();
   }
 
 
@@ -50,6 +57,7 @@ export class TodosComponent implements OnInit {
     this.todoService.addTodo(todo).subscribe(todoparam => {
      // this.todos.push(todoparam);
     });
+    this.dataUpdate();
   }
 
 }
