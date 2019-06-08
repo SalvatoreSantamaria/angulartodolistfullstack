@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   // Put to update
   app.put('/pts/:id', function (req, res) {
-    // console.log('from routes.js app.put, req is ', req)
+    console.log('from routes.js app.put, req is ', req)
     // console.log('from routes.js app.put, res is ', res)
     pets.updateOne(req, res);
   });

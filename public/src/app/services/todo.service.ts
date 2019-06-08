@@ -72,10 +72,19 @@ export class TodoService {
     return this.http.post<Todo>('/pts', todo);
   }
 
-  // Toggle Completed
-  toggleCompleted(todo: Todo): Observable<any> { // takes in todo (type is Todo), and returns observable
+ // Toggle Completed
+  toggleCompleted(todo /*: Todo*/): Observable<any> { // takes in todo (type is Todo), and returns observable
     const url = `${this.todosUrl}/${todo.id}`; // updating a specific todo
-    return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
+    console.log('from todo service', 'url is', url, 'todo.id is', todo._id);
+   // return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
+    return this.http.put('/pts', todo._id);
   }
+
+  // Original Code
+  // // Toggle Completed
+  // toggleCompleted(todo: Todo): Observable<any> { // takes in todo (type is Todo), and returns observable
+  //   const url = `${this.todosUrl}/${todo.id}`; // updating a specific todo
+  //   return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
+  // }
 }
 

@@ -67,18 +67,20 @@ module.exports = {
 
 
   updateOne: function(req, res) {
-    console.log(req.params.id);
+    console.log('from update one, req.params.id is', req.params.id, 'and req.params.completed is', req.params.completed);
+
     Pet.update(
       {
         _id: req.params.id,
       },
       {
-        name: req.body.name,
-        description: req.body.description,
-        type: req.body.type,
-        skill1: req.body.skill1,
-        skill2: req.body.skill2,
-        skill3: req.body.skill3,
+        // completed : !completed,
+        // name: req.body.name,
+        // description: req.body.description,
+        // type: req.body.type,
+        // skill1: req.body.skill1,
+        // skill2: req.body.skill2,
+        // skill3: req.body.skill3,
       },
       function(error, data) {
         if (error) {
