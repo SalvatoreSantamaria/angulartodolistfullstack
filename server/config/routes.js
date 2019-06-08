@@ -16,14 +16,14 @@ module.exports = function(app) {
 
   // Put to update
   app.put('/pts/:id', function (req, res) {
-    console.log('from routes.js app.put, req is ', req)
+  //  console.log('from routes.js app.put, req is ', req)
     // console.log('from routes.js app.put, res is ', res)
     pets.updateOne(req, res);
   });
 
   // Delete to delete
   app.delete('/pts/:id', function(req, res) {
-    console.log('this is from routes.js', req.params.id);
+  //  console.log('this is from routes.js', req.params.id);
     pets.deleteOne(req, res);
   });
 

@@ -73,11 +73,11 @@ export class TodoService {
   }
 
  // Toggle Completed
-  toggleCompleted(id: Todo): Observable<Todo> { // takes in todo (type is Todo), and returns observable
+  toggleCompleted(id: Todo, updatedToggle): Observable<Todo> { // takes in todo (type is Todo), and returns observable
    // const url = `${this.todosUrl}/${todo.id}`; // updating a specific todo
-    console.log('from todo service, toggleCompleted id is', id);
+    console.log('from todo service, toggleCompleted id is', id, 'and todo is', Todo, 'and updatedToggle is', updatedToggle); // Todo is incorrect, now passing in data thru updatedToggle, send it to the server!!!!
    // return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
-    return this.http.put<Todo>('/pts/' + id, httpOptions);
+    return this.http.put<Todo>('/pts/' + id, Todo /*, httpOptions*/ );
   }
 
   // Original Code

@@ -41,10 +41,10 @@ module.exports = {
 
 //new code with validation, in progress
   createOne: function (req, res) {
-    console.log('createOne from pets.js')
+    console.log('createOne from pets.js, req.body.title is' , req.body.title)
     var pet = new Pet({
       title: req.body.title,
-      completed: false,
+      completed: req.body.completed,
       // name: req.body.name,
       // description: req.body.description,
       // type: req.body.type,
@@ -54,7 +54,7 @@ module.exports = {
     });
     pet.save()
       .then(function(results) {
-        console.log('Pet Added!', results);
+        console.log('To do Added!', results);
         res.json(results);
       })
       .catch(error => {
@@ -67,7 +67,10 @@ module.exports = {
 
 
   updateOne: function(req, res) {
-    console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.completed is', req.body.completed);
+    console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.title is', req.body.title); //nothing coming thru req.body.
+    let completedvar;
+    completedvar = !completedvar;
+    
 
     Pet.update(
       {
@@ -75,7 +78,7 @@ module.exports = {
       },
       {
       //  title: req.body.title,
-       completed: !req.body.completed,
+        completed: completedvar, //either set to req.body or set to != to whatever it is
         // completed : !completed,
         // name: req.body.name,
         // description: req.body.description,
