@@ -6,6 +6,7 @@
 <app-todo-item
   *ngFor="let t of todos"
   [todo]="t"
+  (updateToggle)="updateToggle($event)"
   (deleteTodo)="deleteTodo($event)"
 >
 </app-todo-item>

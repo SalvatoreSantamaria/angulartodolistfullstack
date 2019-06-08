@@ -10,6 +10,7 @@ import { TodoService } from '../../services/todo.service';
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo; // taking in
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter(); // type is todo. have to catch this in todos.component.html
+  @Output() updateToggle: EventEmitter<Todo> = new EventEmitter(); // adding this for completed- will this work?
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -23,21 +24,26 @@ export class TodoItemComponent implements OnInit {
     };
     return classes;
   }
+
   onToggle(todo) {
     // toggle in UI
-    console.log('toggle');
-    todo.completed = !todo.completed; // setting this to whatever it is not
+    // console.log('toggle');
+    todo.completed = !todo.completed; // setting this to whatever it is not. this changes the UI (strikethrough) on the page
 
-    // update server toggle
-    this.todoService.toggleCompleted(todo).subscribe(todoparam => {
-      console.log(todoparam);
-    });
+    // update server toggle. this is not working
+
+    // this.todoService.toggleCompleted(todo).subscribe(todoparam => {
+    // console.log('from todo-item.component.ts todo is', todo, 'and todoparam is', todoparam);
+    // });
+
+    console.log('from todo-item.component.ts. onToggle todo is', todo);
+    this.updateToggle.emit(todo);
 
   }
   // clicking the delete button in this component sends off event, emitting this as output (see @Output above)
   // catching it in todos.component.html, and setting it to deleteTodo in the todos.component.ts
   onDelete(todo) { // take in todo param
-    console.log('delete', todo);
+    console.log('from todo-item.component.ts. delete', todo);
     this.deleteTodo.emit(todo); // passing in todo param
 
   }

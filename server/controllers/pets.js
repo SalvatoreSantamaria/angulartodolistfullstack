@@ -44,7 +44,7 @@ module.exports = {
     console.log('createOne from pets.js')
     var pet = new Pet({
       title: req.body.title,
-      completed: req.body.completed
+      completed: false,
       // name: req.body.name,
       // description: req.body.description,
       // type: req.body.type,
@@ -67,13 +67,15 @@ module.exports = {
 
 
   updateOne: function(req, res) {
-    console.log('from update one, req.params.id is', req.params.id, 'and req.params.completed is', req.params.completed);
+    console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.completed is', req.body.completed);
 
     Pet.update(
       {
-        _id: req.params.id,
+       _id: req.params.id,
       },
       {
+      //  title: req.body.title,
+       completed: !req.body.completed,
         // completed : !completed,
         // name: req.body.name,
         // description: req.body.description,

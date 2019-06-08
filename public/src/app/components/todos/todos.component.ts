@@ -37,6 +37,15 @@ export class TodosComponent implements OnInit {
     });
   }
 
+  // adding this, is this correct?
+  updateToggle(data) {
+    console.log('From todos.component.ts', data._id);
+    this.todoService.toggleCompleted(data._id).subscribe(result => {
+
+    });
+  }
+
+
   addTodo(todo: Todo) {
     this.todoService.addTodo(todo).subscribe(todoparam => {
      // this.todos.push(todoparam);
