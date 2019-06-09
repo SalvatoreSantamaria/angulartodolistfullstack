@@ -16,8 +16,6 @@ module.exports = function(app) {
 
   // Put to update
   app.put('/pts/:id', function (req, res) {
-  //  console.log('from routes.js app.put, req is ', req)
-    // console.log('from routes.js app.put, res is ', res)
     pets.updateOne(req, res);
   });
 
@@ -27,8 +25,9 @@ module.exports = function(app) {
     pets.deleteOne(req, res);
   });
 
-  // Get to retrieve by ID
-  app.get('/pts/:id', function(req, res) {
-    pets.findOne(req, res);
-  });
+  // // not used in this project
+  // // Get to retrieve by ID
+  // app.get('/pts/:id', function(req, res) {
+  //   pets.findOne(req, res);
+  // });
 };

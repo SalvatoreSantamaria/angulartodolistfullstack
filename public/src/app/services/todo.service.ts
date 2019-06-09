@@ -21,9 +21,6 @@ export class TodoService {
   getTodos(): Observable<Todo> { // type is Observable
   return this.http.get<Todo>('/pts');
 
-
-
-
   // original code
   // getTodos(): Observable<Todo[]> { // type is Observable
   // return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
@@ -63,7 +60,6 @@ export class TodoService {
     const url = '/pts/' + id;
     // console.log(url);
     return this.http.delete<Todo>('/pts/' + id);
-
   }
 
   // Add Todo to server
@@ -72,11 +68,8 @@ export class TodoService {
     return this.http.post<Todo>('/pts', todo);
   }
 
- // Toggle Completed
+ // Toggle Completed to the database
   toggleCompleted(id: Todo, updatedToggle): Observable<Todo> { // takes in todo (type is Todo), and returns observable
-   // const url = `${this.todosUrl}/${todo.id}`; // updating a specific todo
-    console.log('from todo service, toggleCompleted id is', id, 'and todo is', Todo, 'and updatedToggle is', updatedToggle); // Todo is incorrect, now passing in data thru updatedToggle, send it to the server!!!!
-   // return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
     return this.http.put<Todo>('/pts/' + id, updatedToggle /*, httpOptions*/ );
   }
 

@@ -16,41 +16,12 @@ module.exports = {
     });
   },
 
-  //working, original code
-  // createOne: function (req, res) {
-  //   console.log('createOne from pets.js')
-  //   var pet = new Pet({
-  //     name: req.body.name,
-  //     description: req.body.description,
-  //     type: req.body.type,
-  //     skill1: req.body.skill1,
-  //     skill2: req.body.skill2,
-  //     skill3: req.body.skill3,
-  //   });
-  //   pet.save(function(err, results) {
-  //     if (err) {
-  //       console.log('There is an error', err);
-  //     } else {
-  //       console.log('Pet Added!', results);
-  //      // res.redirect('/pets'); // original code, but i think this breaks it, 3/9
-  //       res.json(results) // is this correct? yes! returns results :D
-  //     }
-  //   });
-  // },
-
-
-//new code with validation, in progress
   createOne: function (req, res) {
-    console.log('createOne from pets.js, req.body.title is' , req.body.title)
+    // console.log('createOne from pets.js, req.body.title is' , req.body.title)
     var pet = new Pet({
       title: req.body.title,
       completed: req.body.completed,
-      // name: req.body.name,
-      // description: req.body.description,
-      // type: req.body.type,
-      // skill1: req.body.skill1,
-      // skill2: req.body.skill2,
-      // skill3: req.body.skill3,
+
     });
     pet.save()
       .then(function(results) {
@@ -67,23 +38,13 @@ module.exports = {
 
 
   updateOne: function(req, res) {
-    console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.title is', req.body.title); //nothing coming thru req.body.
-    
-
+   // console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.title is', req.body.title); 
     Pet.update(
       {
        _id: req.params.id,
       },
       {
-      //  title: req.body.title,
         completed: req.body.completed,
-        // completed : !completed,
-        // name: req.body.name,
-        // description: req.body.description,
-        // type: req.body.type,
-        // skill1: req.body.skill1,
-        // skill2: req.body.skill2,
-        // skill3: req.body.skill3,
       },
       function(error, data) {
         if (error) {
@@ -113,15 +74,19 @@ module.exports = {
       }
     });
   },
-  findOne: function(req, res) {
-    Pet.findOne({ _id: req.params.id }, function(err, pet) {
-      if (err) {
-        console.log('There is an error', err);
-      } else {
-        console.log('Pet found');
-        // respond with JSON
-        res.json({ data: pet });
-      }
-    });
-  },
+
+  // findOne not used in this project.
+  // findOne: function(req, res) {
+  //   Pet.findOne({ _id: req.params.id }, function(err, pet) {
+  //     if (err) {
+  //       console.log('There is an error', err);
+  //     } else {
+  //       console.log('Pet found');
+  //       // respond with JSON
+  //       res.json({ data: pet });
+  //     }
+  //   });
+  // },
+
+
 };
