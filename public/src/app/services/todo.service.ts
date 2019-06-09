@@ -77,7 +77,7 @@ export class TodoService {
    // const url = `${this.todosUrl}/${todo.id}`; // updating a specific todo
     console.log('from todo service, toggleCompleted id is', id, 'and todo is', Todo, 'and updatedToggle is', updatedToggle); // Todo is incorrect, now passing in data thru updatedToggle, send it to the server!!!!
    // return this.http.put(url, todo, httpOptions); // passing in url, todo, and httpOptions
-    return this.http.put<Todo>('/pts/' + id, Todo /*, httpOptions*/ );
+    return this.http.put<Todo>('/pts/' + id, updatedToggle /*, httpOptions*/ );
   }
 
   // Original Code

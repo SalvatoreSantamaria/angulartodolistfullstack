@@ -68,8 +68,6 @@ module.exports = {
 
   updateOne: function(req, res) {
     console.log('from updateOne, req.params.id is', req.params.id, 'and req.body.title is', req.body.title); //nothing coming thru req.body.
-    let completedvar;
-    completedvar = !completedvar;
     
 
     Pet.update(
@@ -78,7 +76,7 @@ module.exports = {
       },
       {
       //  title: req.body.title,
-        completed: completedvar, //either set to req.body or set to != to whatever it is
+        completed: req.body.completed,
         // completed : !completed,
         // name: req.body.name,
         // description: req.body.description,
