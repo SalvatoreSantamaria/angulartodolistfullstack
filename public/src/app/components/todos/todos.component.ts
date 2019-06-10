@@ -38,7 +38,7 @@ export class TodosComponent implements OnInit {
     // updated code
     this.todoService.deleteTodo(data._id).subscribe(result => {
     // console.log('this is the deleteTodo(todo) route, id is', id);
-    // this.router.navigate(['/pets']);
+    // this.router.navigate(['/']);
     });
     this.dataUpdate();
   }
@@ -46,7 +46,7 @@ export class TodosComponent implements OnInit {
   // adding this, is this correct?
   updateToggle(data) {
     console.log('From todos.component.ts, data._id is', data._id, 'and data is', data);
-    this.todoService.toggleCompleted(data._id, data).subscribe(result => { // was passing just data._id, do i need to pass data through?
+    this.todoService.toggleCompleted(data._id, data).subscribe(result => { //
       console.log('from updatedToggle, result is', result);
     });
     this.dataUpdate();
