@@ -19,7 +19,7 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   getTodos(): Observable<Todo> { // type is Observable
-  return this.http.get<Todo>('/pts');
+  return this.http.get<Todo>('/route');
 
   // original code
   // getTodos(): Observable<Todo[]> { // type is Observable
@@ -57,20 +57,20 @@ export class TodoService {
     // end of original code
 
     // console.log(id);
-    const url = '/pts/' + id;
+    const url = '/route/' + id;
     // console.log(url);
-    return this.http.delete<Todo>('/pts/' + id);
+    return this.http.delete<Todo>('/route/' + id);
   }
 
   // Add Todo to server
   addTodo(todo: Todo): Observable<Todo> {
     // return this.http.post<Todo>(this.todosUrl, todo, httpOptions); // original code
-    return this.http.post<Todo>('/pts', todo);
+    return this.http.post<Todo>('/route', todo);
   }
 
  // Toggle Completed to the database
   toggleCompleted(id: Todo, updatedToggle): Observable<Todo> { // takes in todo (type is Todo), and returns observable
-    return this.http.put<Todo>('/pts/' + id, updatedToggle /*, httpOptions*/ );
+    return this.http.put<Todo>('/route/' + id, updatedToggle /*, httpOptions*/ );
   }
 
   // Original Code

@@ -1,33 +1,33 @@
 var mongoose = require('mongoose');
-var Pet = mongoose.model('List');
-var pets  = require('../controllers/pets');
+var List = mongoose.model('List');
+var items  = require('../controllers/items');
 
 module.exports = function(app) {
-  // Get to retrieve all pets
-  app.get('/pts', function(req, res) {
-    pets.showAll(req, res);
+  // Get to retrieve all items
+  app.get('/route', function(req, res) {
+    items.showAll(req, res);
   });
 
   // Post to create
-  app.post('/pts', function (req, res) {
+  app.post('/route', function (req, res) {
     console.log('from routes.js app.post')
-    pets.createOne(req, res);
+    items.createOne(req, res);
   });
 
   // Put to update
-  app.put('/pts/:id', function (req, res) {
-    pets.updateOne(req, res);
+  app.put('/route/:id', function (req, res) {
+    items.updateOne(req, res);
   });
 
   // Delete to delete
-  app.delete('/pts/:id', function(req, res) {
+  app.delete('/route/:id', function(req, res) {
   //  console.log('this is from routes.js', req.params.id);
-    pets.deleteOne(req, res);
+    items.deleteOne(req, res);
   });
 
   // // not used in this project
   // // Get to retrieve by ID
-  // app.get('/pts/:id', function(req, res) {
-  //   pets.findOne(req, res);
+  // app.get('/route/:id', function(req, res) {
+  //   items.findOne(req, res);
   // });
 };

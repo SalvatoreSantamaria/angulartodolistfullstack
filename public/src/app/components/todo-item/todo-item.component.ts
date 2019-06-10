@@ -29,13 +29,6 @@ export class TodoItemComponent implements OnInit {
     // toggle in UI
     // console.log('toggle');
     todo.completed = !todo.completed; // setting this to whatever it is not. this changes the UI (strikethrough) on the page
-
-    // update server toggle. this is not working
-
-    // this.todoService.toggleCompleted(todo).subscribe(todoparam => {
-    // console.log('from todo-item.component.ts todo is', todo, 'and todoparam is', todoparam);
-    // });
-
     console.log('from todo-item.component.ts. onToggle todo is', todo);
     this.updateToggle.emit(todo);
 

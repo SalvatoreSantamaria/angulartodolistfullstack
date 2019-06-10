@@ -15,7 +15,7 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
-   // this.todos = this.todoService.getTodos(); was for placeholder, but can do this anymore because it is asynchronus
+   // this.todos = this.todoService.getTodos(); was for placeholder, (but cant do this anymore because it is asynchronus)
     this.dataUpdate();
   }
 
