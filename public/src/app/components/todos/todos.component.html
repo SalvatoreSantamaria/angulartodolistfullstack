@@ -2,11 +2,12 @@
 
 </app-todo-item> -->
 
-<app-add-todo (addTodo)="addTodo($event)"></app-add-todo> <!--// setting this to run a method in todos component called "addTodo"-->
-<app-todo-item
-  *ngFor="let t of todos"
-  [todo]="t"
-  (updateToggle)="updateToggle($event)"
-  (deleteTodo)="deleteTodo($event)"
->
-</app-todo-item>
+  <app-add-todo (addTodo)="addTodo($event)"></app-add-todo> <!--// setting this to run a method in todos component called "addTodo"-->
+  <app-todo-item
+    *ngFor="let t of todos"
+    [todo]="t"
+    (updateToggle)="updateToggle($event)"
+    (deleteTodo)="deleteTodo($event)"
+  >
+  </app-todo-item>
+
